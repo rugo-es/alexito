@@ -1,0 +1,150 @@
+{{>partials/header}}
+
+<main class="container">
+  <div class="py-5 text-center">
+    <img class="d-block mx-auto mb-4" src="/img/logo.png" alt="" width="100" height="100">
+    <h2>Crear nueva cuenta</h2>
+    <p class="lead">Rellene el siguiente formulario para crear su cuenta y acceder a los servicios de Finder.</p>
+  </div>
+
+  <div class="row g-5">
+
+    <div class="col-md-5 col-lg-4 order-md-last">
+      <!--
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-primary">Membresía</span>
+      </h4>
+      <div class="btn-group-vertical w-100" role="group" aria-label="Basic radio toggle button group">
+        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+        <label class="btn d-flex justify-content-between lh-sm" for="btnradio1">
+          <div class="text-start text-success">
+            <h6 class="my-0 fw-bold">Free</h6>
+            <small>Memebresía gratis</small>
+          </div>
+          <span>0€</span>
+        </label>
+
+        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+        <label class="btn d-flex justify-content-between lh-sm" for="btnradio2">
+          <div class="text-start text-muted">
+            <h6 class="my-0 fw-bold">Standard</h6>
+            <small>Acceso al contenido exclusivo</small>
+          </div>
+          <span>3€</span>
+        </label>
+
+        <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+        <label class="btn d-flex justify-content-between lh-sm" for="btnradio3">
+          <div class="text-start text-muted">
+            <h6 class="my-0 fw-bold">Premium</h6>
+            <small>Acceso ilimitado</small>
+          </div>
+          <span>10€</span>
+        </label>
+      </div>
+
+      <form class="card p-2 mt-3">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Código promocional">
+          <button type="submit" class="btn btn-secondary">Aceptar</button>
+        </div>
+      </form>
+      -->
+    </div>
+
+    <div class="col-md-7 col-lg-8">
+      <h4 class="mb-3">Tus datos</h4>
+      <form class="" onsubmit="register(); return false;" enctype="multipart/form-data" novalidate>
+
+        <div class="row g-3">
+
+          <div class="col-sm-6">
+            <label for="name" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="name" placeholder="John" value="" maxlength="48">
+            <div class="invalid-feedback"></div>
+          </div>
+
+          <div class="col-sm-6">
+            <label for="lastName" class="form-label">Apellidos</label>
+            <input type="text" class="form-control" id="lastName" placeholder="Doe" value="" maxlength="48">
+            <div class="invalid-feedback"></div>
+          </div>
+
+          <div class="col-12">
+            <label for="username" class="form-label">Username</label>
+            <div class="input-group has-validation">
+              <span class="input-group-text">@</span>
+              <input type="text" class="form-control" id="username" placeholder="Username" maxlength="48">
+              <div class="invalid-feedback"></div>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="you@example.com">
+            <div class="invalid-feedback"></div>
+          </div>
+
+          <div class="col-sm-6">
+            <label for="password" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="password" placeholder="">
+            <div class="invalid-feedback"></div>
+          </div>
+
+          <div class="col-sm-6">
+            <label for="passwordConfirm" class="form-label">Confirma tu contraseña</label>
+            <input type="password" class="form-control" id="passwordConfirm" placeholder="">
+            <div class="invalid-feedback"></div>
+          </div>
+
+          <div class="mb-3">
+            <label for="avatar" class="form-label">Avatar</label>
+            <input class="form-control mb-3" type="file" id="avatar" accept="image/*">
+            <div class="spinner-border mx-auto mb-2 d-none" role="status" id="avatarLoader">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+            <img src="/img/placeholder.jpg" id="avatarPreview" class="rounded-circle d-block mx-auto border border-2 avatar-md" alt="">
+          </div>
+
+          <div class="mb-3">
+            <label for="map" class="form-label">Selecciona tu zona</label>
+            <div id="map"></div>
+          </div>
+
+          <hr class="my-4">
+
+          <div class="form-check mx-3 mx-sm-0">
+            <input type="checkbox" class="form-check-input" id="acceptTerms">
+            <label class="form-check-label" for="acceptTerms">Acepto los términos y condiciones.</label>
+            <div class="invalid-feedback">Acepta los terminos y condiciones</div>
+          </div>
+
+          <button class="w-100 btn btn-primary btn-lg" type="submit" id="btnRegisterSubmit">
+            <span class="spinner-border spinner-border-sm d-none" id="loaderRegisterSubmit" role="status" aria-hidden="true"></span>
+            <span id="txtRegisterSubmit">Registrarse</span>
+          </button>
+          <span class="d-none text-danger" id="reviewMessage">Revisa el formulario</span>
+
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+</main>
+
+<div class="modal fade" id="registerModal" data-bs-backdrop="static" data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="registerModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        <img src="/img/ok.png" class="avatar-md d-block mx-auto my-4" alt="">
+        <h3>Cuenta registrada correctamente</h3>
+        <button type="button" class="btn btn-primary my-4" onclick="location.href='/login'">Iniciar sesión</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{>partials/footer}}

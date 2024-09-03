@@ -1,0 +1,28 @@
+{{>partials/header}}
+
+<main class="w-100 d-flex justify-content-center my-4 py-5">
+  <div class="form-signin text-center mb-4">
+    <form onsubmit="login(); return false;" novalidate>
+      <img class="mb-4 avatar-md" src="/img/logo.png" alt="">
+      <h2>Iniciar sesión en Finder</h2>
+      <p class="lead">Introduzca sus claves de acceso</p>
+      <div class="form-floating">
+        <input type="email" class="form-control" id="email" placeholder="name@example.com">
+        <label for="email">Email</label>
+        <div class="invalid-feedback"></div>
+      </div>
+      <div class="form-floating mt-1">
+        <input type="password" class="form-control" id="password" placeholder="Password">
+        <label for="password">Contraseña</label>
+        <div class="invalid-feedback"></div>
+      </div>
+      <button class="w-100 btn btn-lg btn-primary mt-4" type="submit" id="btnLoginSubmit">
+        <span class="spinner-border spinner-border-sm d-none" id="loaderLoginSubmit" role="status"
+          aria-hidden="true"></span>
+        <span id="txtLoginSubmit">Iniciar sesión</span>
+      </button>
+    </form>
+  </div>
+</main>
+
+{{>partials/footer}}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finder</title>
+  <link rel="icon" type="image/x-icon" href="/img/logo.png">
+
+  {{#css}}
+  <link href="{{{.}}}" type="text/css" rel="stylesheet">
+  {{/css}}
+
+</head>
+
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-lg bg-light fixed-top shadow-sm">
+      <div class="container-fluid">
+        <a class="navbar-brand p-0" href="/">
+          <img src="/img/logo.png" class="logo me-1" alt="">Finder
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
+          aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMain">
+          <ul class="navbar-nav me-auto my-2 my-lg-0">
+            {{^account}}
+            <li class="nav-item">
+              <a class="nav-link" href="/register">Crear cuenta</a>
+            </li>
+            {{/account}}
+          </ul>
+          <ul class="navbar-nav my-2 my-lg-0">
+            {{^account}}
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Iniciar sesión</a>
+            </li>
+            {{/account}}
+            {{#account}}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle p-0" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <div class="d-none d-lg-inline">
+                  {{#account.avatar}}
+                  <img src="{{ account.avatar }}" class="rounded-circle border border-2 avatar-sm" alt="" />
+                  {{/account.avatar}}
+                  {{^account.avatar}}
+                  <img src="/img/placeholder.jpg" class="rounded-circle border border-2 avatar-sm" alt="" />
+                  {{/account.avatar}}
+                </div>
+                <div class="d-inline d-lg-none">
+                  Tu cuenta
+                </div>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="/profile">Perfil</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="/logout">Cerrar sesión</a></li>
+              </ul>
+            </li>
+            {{/account}}
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>

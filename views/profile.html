@@ -1,0 +1,91 @@
+{{>partials/header}}
+
+<main class="container pt-5">
+
+  <div class="text-center">
+    {{#account.avatar}}
+    <img src="{{ account.avatar }}" class="rounded-circle d-block mx-auto border border-2 avatar-md" alt="" />
+    {{/account.avatar}}
+    {{^account.avatar}}
+    <img src="/img/placeholder.jpg" class="rounded-circle d-block mx-auto border border-2 avatar-md" alt="" />
+    {{/account.avatar}}
+    <h2>{{ account.name }} {{ account.lastName}}</h2>
+    <span class="lead d-block">{{ account.email }}</span>
+  </div>
+
+  <div class="row g-5">
+
+    <div class="col-md-5 col-lg-4 order-md-last"></div>
+
+    <div class="col-md-7 col-lg-8">
+
+      <form class="" onsubmit="updateProfile(); return false;" enctype="multipart/form-data" novalidate>
+        <input type="hidden" id="accountId" value="{{ account._id }}">
+        <div class="row g-3">
+
+          <h4>Cambiar nombre de usuario</h4>
+          <div class="col-sm-6 m-0">
+            <div class="input-group has-validation">
+              <span class="input-group-text">@</span>
+              <input type="text" class="form-control" id="username" value="{{ account.username }}" maxlength="48">
+              <div class="invalid-feedback"></div>
+            </div>
+          </div>
+
+          <h4 class="mt-4">Actualizar contraseña</h4>
+          <div class="col-sm-6 m-0">
+            <input type="password" class="form-control" id="password" placeholder="">
+            <div class="invalid-feedback"></div>
+          </div>
+
+          <h4 class="mt-4">Cambiar avatar</h4>
+          <div class="m-0">
+            <input class="form-control mb-3" type="file" id="avatar" accept="image/*">
+            <div class="spinner-border mx-auto mb-2 d-none" role="status" id="avatarLoader">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+            {{#account.avatar}}
+            <img src="{{ account.avatar }}" id="avatarPreview" class="rounded-circle d-block mx-auto border border-2 avatar-md" alt="" />
+            {{/account.avatar}}
+            {{^account.avatar}}
+            <img src="/img/placeholder.jpg" id="avatarPreview" class="rounded-circle d-block mx-auto border border-2 avatar-md" alt="" />
+            {{/account.avatar}}
+          </div>
+
+          <div class="mb-3">
+            <h4>Actualizar zona</h4>
+            <input type="hidden" id="accountZoneLat" value="{{ account.zone.lat }}">
+            <input type="hidden" id="accountZoneLng" value="{{ account.zone.lng }}">
+            <div id="map"></div>
+          </div>
+
+          <button class="w-100 btn btn-primary btn-lg" type="submit" id="btnUpdateProfileSubmit">
+            <span class="spinner-border spinner-border-sm d-none" id="loaderUpdateProfileSubmit" role="status"
+              aria-hidden="true"></span>
+            <span id="txtUpdateProfileSubmit">Guardar cambios</span>
+          </button>
+          <span class="d-none text-danger" id="reviewMessage">Revisa el formulario</span>
+
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+</main>
+
+<div class="modal fade" id="profileModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="profileModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        <img src="/img/ok.png" class="avatar-md d-block mx-auto my-4" alt="">
+        <h3>Cuenta actualizada correctamente</h3>
+        <button type="button" class="btn btn-primary my-4" onclick="location.reload()">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{>partials/footer}}

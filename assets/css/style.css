@@ -1,0 +1,26 @@
+body {
+  margin-top: 76px;
+}
+
+.form-signin {
+  min-width: 350px;
+  max-width: 350px;
+}
+
+.avatar-md {
+  width: 100px;
+  height: 100px;
+}
+
+.avatar-sm, .logo {
+  width: 40px;
+  height: 40px;
+}
+
+#map {
+  height: 70vh;
+}
+
+.leaflet-popup-content {
+  margin: 10px 14px 10px 10px;
+}
