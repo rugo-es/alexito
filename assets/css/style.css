@@ -8,6 +8,8 @@ body {
   color: white;
 }
 
+/* rgb(33, 37, 41) */
+
 .navbar-brand {
   position: absolute;
   left: 15;
@@ -42,9 +44,24 @@ body {
   background-position: center;
 }
 
+.border-green-detail {
+  position: relative;
+}
+
+.border-green-detail::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-20px);
+  width: 80px;
+  height: 2px;
+  background-color: var(--cs-green);
+}
+
 .content-image {
   display: inline-block;
-  width: 200px;
+  width: 280px;
   height: 500px;
   border-radius: 250px;
 }
@@ -57,6 +74,7 @@ body {
 
 .content-image--secondary {
   margin-top: 80px;
+  margin-left: 10px;
   background-image: url(/img/people-2.jpg);
   background-size: cover;
   background-position: center;
@@ -72,9 +90,13 @@ body {
 }
 
 .footer-container {
-  background-image: url(/img/people-2.jpg);
+  --opacidad-negro: 0.6;
+  background-image: linear-gradient(rgba(0, 0, 0, var(--opacidad-negro)), rgba(0, 0, 0, var(--opacidad-negro))),
+  url(/img/people-2.jpg);
+  /* background-image: url(/img/people-2.jpg); */
   background-size: cover;
   background-position: center;
+  padding: 20px;
   width: 100%;
   height: 200px;
 }
@@ -96,6 +118,7 @@ body {
 
 #map {
   height: 70vh;
+  border-radius: 25px;
 }
 
 .leaflet-popup-content {
