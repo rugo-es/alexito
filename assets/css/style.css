@@ -6,6 +6,7 @@ body {
   margin-top: 76px;
   background-color: #2f2a2a;
   color: white;
+  min-height: calc(100vh - 76px);
 }
 
 .navbar-brand {
@@ -120,4 +121,46 @@ body {
 
 .leaflet-popup-content {
   margin: 10px 14px 10px 10px;
+}
+
+
+
+.chat-contacts {
+  max-width: 250px;
+}
+@media (max-width: 991.98px) {
+  .chat-contacts {
+    max-width: 100%;
+  }
+}
+
+.chat-messages__message {
+  max-width: 85%;
+}
+.text-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.overflow-y-auto {
+  overflow-y: auto;
+}
+
+.text-small {
+  font-size: 0.7rem;
+}
+
+.height-chat {
+  min-height: calc(100vh - 76px - 120px);
+  max-height: calc(100vh - 76px - 120px);
+}
+
+.contact-info {
+  width: calc(100% - 40px);
+}
+
+#chat-contacts__container {
+  max-height: calc(100vh - 76px - 174px);
+  overflow-y: auto;
 }

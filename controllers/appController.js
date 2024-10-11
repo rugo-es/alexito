@@ -43,6 +43,14 @@ async function profile (req, res) {
   })
 }
 
+async function chat (req, res) {
+  res.render('chat', {
+    account: req.session.account,
+    css: [bootstrap.css, style],
+    scripts: [jquery, bootstrap.js, '/js/chat.js']
+  })
+}
+
 async function faqs (req, res) {
   res.render('faqs', {
     css: [bootstrap.css, style],
@@ -55,5 +63,6 @@ module.exports = {
   login,
   register,
   profile,
+  chat,
   faqs
 }
