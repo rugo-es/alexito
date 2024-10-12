@@ -3,6 +3,8 @@
   --cs-green-hover: #028f02;
 }
 body {
+  display: flex;
+  flex-direction: column;
   margin-top: 76px;
   background-color: #2f2a2a;
   color: white;
@@ -125,13 +127,22 @@ body {
 
 
 
+
+
+
+
 .chat-contacts {
   max-width: 250px;
+  height: calc(100vh - 76px - 121px)
 }
 @media (max-width: 991.98px) {
   .chat-contacts {
     max-width: 100%;
   }
+}
+
+.chat-messages {
+  height: calc(100vh - 76px - 121px);
 }
 
 .chat-messages__message {
@@ -151,16 +162,12 @@ body {
   font-size: 0.7rem;
 }
 
-.height-chat {
-  min-height: calc(100vh - 76px - 120px);
-  max-height: calc(100vh - 76px - 120px);
-}
 
 .contact-info {
   width: calc(100% - 40px);
 }
 
 #chat-contacts__container {
-  max-height: calc(100vh - 76px - 174px);
   overflow-y: auto;
+  height: calc(100% - 54px)
 }
