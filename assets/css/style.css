@@ -125,12 +125,6 @@ body {
   margin: 10px 14px 10px 10px;
 }
 
-
-
-
-
-
-
 .chat-contacts {
   max-width: 250px;
   height: calc(100vh - 76px - 121px)
@@ -148,6 +142,7 @@ body {
 .chat-messages__message {
   max-width: 85%;
 }
+
 .text-ellipsis {
   white-space: nowrap;
   overflow: hidden;
@@ -161,7 +156,6 @@ body {
 .text-small {
   font-size: 0.7rem;
 }
-
 
 .contact-info {
   width: calc(100% - 40px);
