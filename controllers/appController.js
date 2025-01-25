@@ -12,26 +12,28 @@ const leaflet = {
     js: '/vendor/leaflet-geocoder/Control.Geocoder.min.js'
   }
 }
+const websocket = '/vendor/socket/socket.io.min.js'
+const commonJs = [jquery, bootstrap.js, websocket, '/js/websocket.js']
 
 async function landing (req, res) {
   return res.render('landing', {
     account: req.session?.account || null,
     css: [bootstrap.css, leaflet.css, leaflet.geocoder.css, style],
-    scripts: [jquery, bootstrap.js, leaflet.js, leaflet.geocoder.js, '/js/landing.js']
+    scripts: [...commonJs, leaflet.js, leaflet.geocoder.js, '/js/landing.js']
   })
 }
 
 async function login (req, res) {
   res.render('login', {
     css: [bootstrap.css, style],
-    scripts: [jquery, bootstrap.js, '/js/login.js']
+    scripts: [...commonJs, '/js/login.js']
   })
 }
 
 async function register (req, res) {
   res.render('register', {
     css: [bootstrap.css, leaflet.css, leaflet.geocoder.css, style],
-    scripts: [jquery, bootstrap.js, leaflet.js, leaflet.geocoder.js, '/js/register.js']
+    scripts: [...commonJs, leaflet.js, leaflet.geocoder.js, '/js/register.js']
   })
 }
 
@@ -39,7 +41,7 @@ async function profile (req, res) {
   res.render('profile', {
     account: req.session.account,
     css: [bootstrap.css, leaflet.css, leaflet.geocoder.css, style],
-    scripts: [jquery, bootstrap.js, leaflet.js, leaflet.geocoder.js, '/js/profile.js']
+    scripts: [...commonJs, leaflet.js, leaflet.geocoder.js, '/js/profile.js']
   })
 }
 
@@ -47,14 +49,15 @@ async function chat (req, res) {
   res.render('chat', {
     account: req.session.account,
     css: [bootstrap.css, style],
-    scripts: [jquery, bootstrap.js, '/js/chat.js']
+    scripts: [...commonJs, '/js/chat.js']
   })
 }
 
 async function faqs (req, res) {
   res.render('faqs', {
+    account: req.session?.account || null,
     css: [bootstrap.css, style],
-    scripts: [bootstrap.js]
+    scripts: [...commonJs]
   })
 }
 

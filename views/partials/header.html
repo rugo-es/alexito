@@ -43,6 +43,10 @@
                   {{^account.avatar}}
                   <img src="/img/placeholder.jpg" class="rounded-circle border border-2 avatar-sm" alt="" />
                   {{/account.avatar}}
+                  <span id="unreadMessagesAvatar"
+                    class="position-absolute top-0 start-50 translate-middle-y border border-light rounded-circle badge-unreaded-messages d-none">
+                    <span class="visually-hidden"></span>
+                  </span>
                 </div>
                 <div class="d-inline d-lg-none">
                   Tu cuenta
@@ -50,17 +54,20 @@
               </a>
               <ul class="dropdown-menu dropdown-menu-end">
                 <li><a class="dropdown-item" href="/profile">Perfil</a></li>
-                <li><a class="dropdown-item" href="/chat">Mensajes</a></li>
+                <li>
+                  <a class="dropdown-item" href="/chat">
+                    Mensajes
+                    <span id="unreadMessagesNavLink" class="border border-light rounded-circle badge-unreaded-messages-nav d-none">
+                      <span class="visually-hidden"></span>
+                    </span>
+                  </a>
+                </li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="/logout">Cerrar sesión</a></li>
               </ul>
             </li>
             {{/account}}
           </ul>
-          <!--
-          <ul class="navbar-nav my-2 my-lg-0">
-          </ul>
-          -->
         </div>
       </div>
     </nav>

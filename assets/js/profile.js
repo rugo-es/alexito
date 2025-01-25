@@ -97,8 +97,8 @@ function updateProfile () {
       }
       updateToken()
     })
-    .fail(function (jqXHR) {
-      console.log(jqXHR)
+    .fail(function (jqXHR, textStatus, errorThrown) {
+      console.log(textStatus)
     }).always(function () {
       $('#btnUpdateProfileSubmit').prop('disabled', false)
       $('#loaderUpdateProfileSubmit').addClass('d-none')
@@ -116,8 +116,8 @@ function updateToken () {
     .done(function () {
       $('#profileModal').modal('show')
     })
-    .fail(function (jqXHR) {
-      console.log(jqXHR)
+    .fail(function (jqXHR, textStatus, errorThrown) {
+      console.log(textStatus)
     })
 }
 

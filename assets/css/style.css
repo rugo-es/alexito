@@ -90,6 +90,12 @@ body {
   background-color: var(--cs-green-hover);
 }
 
+.btn-chat {
+  font-size: 13px;
+  padding: 2px 6px;
+  display: inline;
+}
+
 .footer-container {
   --opacidad-negro: 0.6;
   background-image: linear-gradient(rgba(0, 0, 0, var(--opacidad-negro)), rgba(0, 0, 0, var(--opacidad-negro))),
@@ -113,6 +119,7 @@ body {
 }
 
 .avatar-sm, .logo {
+  min-width: 40px;
   width: 40px;
   height: 40px;
 }
@@ -164,4 +171,23 @@ body {
 #chat-contacts__container {
   overflow-y: auto;
   height: calc(100% - 54px)
+}
+
+.badge-unreaded-messages {
+  padding: 5px;
+  margin-top: 5px;
+  margin-left: 2px;
+  background-color: var(--cs-green);
+}
+
+.badge-unreaded-messages-nav {
+  display: inline-block;
+  padding: 5px;
+  position: absolute;
+  background-color: var(--cs-green);
+}
+
+.last-messages-unreaded {
+  font-weight: bold;
+  color: green;
 }

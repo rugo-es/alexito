@@ -3,19 +3,23 @@
 
 <main class="container flex-grow-1">
 
-  <div class="row">
+  <div class="row" id="chat-container">
 
-    <div id="chat-contacts" class="chat-contacts col-12 col-lg p-0">
+    <div id="chat-contacts" class="chat-contacts col-12 col-lg p-2">
       <div class="chat-contacts__header mb-3">
         <input type="text" class="form-control" id="search-contact" placeholder="Buscar...">
       </div>
       <div class="list-group" id="chat-contacts__container"></div>
     </div>
 
+    <div id="chat-messages-empty" class="col-12 col-lg mt-5 d-none d-lg-block">
+      <h3 class="text-center">Selecciona un contacto</h3>
+    </div>
+
     <div id="chat-messages" class="chat-messages col-12 col-lg ps-lg-5 d-none">
 
-      <div class="chat-messages__header p-3">
-        <div class="d-flex">
+      <div class="chat-messages__header p-2">
+        <div class="d-flex p-2 bg-secondary">
           <button type="button" class="btn btn-primary me-3 d-lg-none" onclick="showContacts()">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left"
               viewBox="0 0 16 16">
@@ -25,30 +29,39 @@
             </svg>
           </button>
           <img id="contact-avatar" src="" class="rounded-circle border border-2 avatar-sm" alt="" />
-          <div class="ps-3 contact-info">
+          <div class="ps-3 contact-info d-flex align-items-center">
             <strong id="contact-name" class="d-block text-ellipsis"></strong>
-            <small id="contact-subtext" class="d-block text-ellipsis text-small"></small>
           </div>
         </div>
       </div>
 
       <div id="chat-messages__content" class="chat-messages__content flex-grow-1 px-3 overflow-y-auto"></div>
 
-      <div class="chat-messages__input mt-3 mb-0 d-flex">
-        <input type="text" class="form-control flex-grow-1 me-2" id="send-message-input" placeholder="Mensaje...">
-        <button type="sbmit" class="form-control btn btn-primary" id="send-message-btn" style="width: 38px;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-fill"
-            viewBox="0 0 16 16">
-            <path
-              d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471z" />
-          </svg>
-        </button>
-      </div>
+      <form id="form-message">
+        <div class="chat-messages__input mt-3 mb-0 d-flex">
+          <input type="text" class="form-control flex-grow-1 me-2" id="send-message-input" placeholder="Mensaje...">
+          <button type="submit" class="form-control btn btn-primary" id="send-message-btn" style="width: 38px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-fill"
+              viewBox="0 0 16 16">
+              <path
+                d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471z" />
+            </svg>
+          </button>
+        </div>
+      </form>
 
     </div>
 
   </div>
+  <div class="row" id="chat-container-no-chats" style="display: none">
+    <h3>No tienes mensajes</h3>
+  </div>
 
 </main>
+
+<script>
+  const userAvatar = "{{ account.avatar }}"
+  let destiny = null
+</script>
 
 {{>partials/footer}}

@@ -8,7 +8,6 @@ function login () {
     email: $('#email').val(),
     password: $('#password').val()
   }
-  console.log(credentials)
   const settings = {
     url: '/login',
     method: 'POST',
