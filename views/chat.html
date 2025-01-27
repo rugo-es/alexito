@@ -60,7 +60,7 @@
 </main>
 
 <script>
-  const userAvatar = "{{ account.avatar }}"
+  const userAvatar = "{{ account.avatar }}" ? "{{ account.avatar }}" : '/img/placeholder.jpg'
   let destiny = null
 </script>
 

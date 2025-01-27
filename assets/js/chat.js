@@ -104,10 +104,11 @@ function loadContacts (showContacts = contacts) {
 }
 
 function loadContact (contact) {
+  const avatar = contact.avatar === undefined ? '/img/placeholder.jpg' : contact.avatar
   $('#chat-contacts__container').append(`
     <button type="button" id="${contact._id}" class="btn-contact list-group-item list-group-item-action py-3" aria-current="true" onclick="loadMessages('${contact._id}')">
       <div class="d-flex">
-        <img src="${contact.avatar}" class="rounded-circle border border-2 avatar-sm" alt="" />
+        <img src="${avatar}" class="rounded-circle border border-2 avatar-sm" alt="" />
         <div class="ps-3 contact-info">
           <div class="d-flex gap-1 align-items-center">
             <strong class="d-block text-ellipsis">${contact.username}</strong>
@@ -195,9 +196,10 @@ function loadMessage (fromMe, contactChat, message, timeData = null) {
       readed: false
     })
   }
+  const avatar = contactChat.avatar === undefined ? '/img/placeholder.jpg' : contactChat.avatar
   $('#chat-messages__content').append(`
     <div class="chat-messages__message d-flex mb-3 ${fromMe ? 'justify-content-end ms-auto' : ''}">
-      ${fromMe ? '' : `<img src="${contactChat.avatar}" class="rounded-circle border border-2 avatar-sm" alt="" />`}
+      ${fromMe ? '' : `<img src="${avatar}" class="rounded-circle border border-2 avatar-sm" alt="" />`}
       <div class="${fromMe ? 'pe' : 'ps'}-3">
         <p class="m-0 p-2 ${fromMe ? 'bg-success' : 'bg-primary'} rounded">${message}</p>
         <small class="d-block text-small ${fromMe ? 'text-end' : ''}">${timeData.hour}</small>
@@ -250,7 +252,8 @@ function getDateBBDDFormat (date) {
 }
 
 function loadContactInfo (contact) {
-  $('#contact-avatar').attr('src', contact.avatar)
+  const avatar = contact.avatar === undefined ? '/img/placeholder.jpg' : contact.avatar
+  $('#contact-avatar').attr('src', avatar)
   $('#contact-name').text(contact.username)
   $('#send-message-input').val('')
 }
